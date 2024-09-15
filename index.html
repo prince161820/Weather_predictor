@@ -11,7 +11,8 @@
 
         <div class="search"> 
 
-             <input type="text" placeholder="enter city"  id="txt" spellcheck="false"> </input>
+             <input type="text" placeholder="enter city"  id="txt" spellcheck="false">  
+              
         <button id="btn"> <img src="search.png" id="img" ></button>
 
         </div>
@@ -92,9 +93,11 @@
           var data = await response.json();
                   if(data.name == undefined){
                       // no change if wrong city entered...
+                      document.getElementById("txt").value="no city found";
+                     
                   }
                   else{
-                   
+                    
               document.querySelector(".city").innerHTML=data.name;
               document.querySelector(".temp").innerHTML= Math.round(data.main.temp) +"°C" ;
               document.querySelector("#hd1").innerHTML=data.main.humidity +"%";
@@ -132,11 +135,6 @@
 
         checkWeather2();
         
-
-      
-      
-   
-
      </script>
 
      
